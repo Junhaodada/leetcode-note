@@ -40,7 +40,7 @@ public:
         return nums;
     }
     // 双指针
-    // O(n^2)
+    // O(n)
     // O(n)
     vector<int> sortedSquares2(vector<int> &nums)
     {
