@@ -23,7 +23,63 @@ O(1)常数阶 < O(logn)对数阶 < O(n)线性阶 < O(n^2)平方阶 < O(n^3)立�
 
 - 二分查找法
 - 双指针法
+- 滑动窗口
 
+<img src="img/数组总结.png" alt="img"  />
 
+### 链表
 
+结构
 
+- 单链表
+- 双链表
+- 循环链表
+
+```c++
+struct ListNode
+{
+    int val;
+    ListNode* next;
+    ListNode(int x):val(x),next(NULL){}
+}
+```
+
+```python
+class ListNode:
+    def __init__(self, val, next=None):
+        self.val = val
+        self.next = next
+```
+
+```java
+public class ListNode {
+    // 结点的值
+    int val;
+
+    // 下一个结点
+    ListNode next;
+
+    // 节点的构造函数(无参)
+    public ListNode() {
+    }
+
+    // 节点的构造函数(有一个参数)
+    public ListNode(int val) {
+        this.val = val;
+    }
+
+    // 节点的构造函数(有两个参数)
+    public ListNode(int val, ListNode next) {
+        this.val = val;
+        this.next = next;
+    }
+}
+```
+
+操作
+
+- 增加节点-O(1)
+- 删除节点-O(1)
+- 查询-O(n)
+
+![img](img/链表总结.png)
