@@ -1,6 +1,7 @@
 #include <cstdio>
 #include <iostream>
 #include <vector>
+#include <cstdint>
 using namespace std;
 
 // 给定一个含有 n 个正整数的数组和一个正整数 target 。
@@ -51,15 +52,35 @@ public:
         else
             return result;
     }
+    int minSubArrayLen2(int target, vector<int> &nums)
+    {
+        int sum = 0;
+        // int result = nums.size() + 1;
+        int result = INT32_MAX;
+        int subLength = 0;
+        int i = 0;
+        for (int j = 0; j < nums.size(); j++)
+        {
+            sum += nums[j];
+            while (sum >= target)
+            {
+                subLength = j - i + 1;
+                result = result < subLength ? result : subLength;
+                sum -= nums[i];
+                i++;
+            }
+        }
+        return result != nums.size() + 1 ? result : 0;
+    }
 };
 void test()
 {
     // vector<int> nums = {2, 3, 1, 2, 4, 3};
     // int target = 7;
-    vector<int> nums = {1, 4, 4};
-    int target = 4;
+    vector<int> nums = {1, 2, 3, 4, 5};
+    int target = 15;
     Solution s;
-    cout << s.minSubArrayLen(target, nums) << endl;
+    cout << s.minSubArrayLen2(target, nums) << endl;
 }
 int main()
 {
